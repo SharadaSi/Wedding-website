@@ -4,7 +4,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Qwigley&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&family=Staatliches&display=swap');
 
 
 
@@ -12,30 +14,40 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 :root{
     --header: #282828;
     --l-text-bg: #fbfbf9;
     --olive: #91967D;
+    --d-grey: #404040;
 }
 
 body{
     background-color: var(--l-text-bg);
     overflow-x: hidden;
     font-family: 'Source Sans Pro', sans-serif;
-    scroll-behavior: smooth;
 }
 
 h1, h2, h3{
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Staatliches', cursive;
+    letter-spacing: .3em;
+}
+
+h2{
+    font-weight: 700;
+}
+
+header{
+    background-color: var(--header);
 }
 
 .nav-bar{
     display: flex;
     justify-content: space-between;
     padding: 1em;
-    background-color: var(--header);
+    
     color: var(--l-text-bg);
     align-items: center;
     height: 10vh;
@@ -50,31 +62,33 @@ h1, h2, h3{
 .logo{
     text-decoration: none;
     color: var(--l-text-bg);
-    font-weight: 900;
-    font-family: 'Qwigley', cursive;
-    font-size: 3.5rem;
+    font-weight: 700;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
     letter-spacing: 2px;
 }
 
 .nav-menu{
-    position: fixed;  
-    left: -100%;
-    top: 10vh;
-    gap: 0;
-    width: 100%;
-    
-    text-align: center;
+    background-color: var(--header);
     list-style-type: none;
+    width: 100%;
+    position: fixed;
+    top: 10vh;
+    left: -100%;
     display: flex;
     flex-direction: column;
-    background: var(--header);
+    justify-content: center;
     align-items: center;
-    transition: .3s;
+    transition: .5s ease;
+    opacity: 0;
 }
 
-.nav-menu.active{
+.open.nav-menu {
     left: 0;
-} 
+    opacity: 1;
+    z-index: 999;
+    transition: .5s ease;
+}
 
 .nav-item{
     margin: .6em 0;
@@ -84,38 +98,82 @@ h1, h2, h3{
     text-decoration: none;
     color: var(--l-text-bg);
     text-transform: uppercase;
-    padding: 0 .5em;
+    padding: .3em .5em;
     margin: 1em 0;
     font-family: 'Cormorant Garamond', serif;
     font-weight: 700;   
 }
 
+.nav-item:hover .nav-link{
+    color: var(--olive);
+}
+
+/* HAMBURGER */
+
 .hamburger{
+    width: 38px;
+    height: 4px;
+    background-color: var(--l-text-bg);
+    transition: .3s ease-in-out;
+    border-radius: 5px;
+}
+
+.menu-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3em;
+    height: 3em;
+    transition: .3s ease-in-out;
+    position: relative;
     cursor: pointer;
-    height: 50%;
+}
+
+.hamburger::before{
+    content: "";
+    position: absolute;
+    width: 38px;
+    height: 4px;
+    background-color: var(--l-text-bg);
+    transition: .5s ease-in-out;
+    border-radius: 5px;
+    transform: translateY(-8px);
+}
+
+.hamburger::after{
+    content: "";
+    position: absolute;
+    width: 38px;
+    height: 4px;
+    background-color: var(--l-text-bg);
+    transition: .5s ease-in-out;
+    border-radius: 5px;
+    transform: translateY(8px);
+}
+
+.hamburger{
+    width: 38px;
+    height: 4px;
+    background-color: var(--l-text-bg);
+    transition: .3s ease-in-out;
+    border-radius: 5px;
+}
+
+.open .hamburger{
+    background-color: transparent;
+}
+
+.open .hamburger::before{
+    transform: rotate(-45deg);
+}
+
+.open .hamburger::after{
+    transform: rotate(45deg);
 }
   
-.bar{
-    display: block;
-    width: 32px;
-    height: 4px;
-    margin: 5px auto;
-    background-color: var(--l-text-bg);
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-} 
 
-.hamburger.active .bar:nth-child(2){
-    opacity: 0;
-} 
 
-.hamburger.active .bar:nth-child(1){
-    transform: translateY(9px) rotate(45deg);
-}
-
-.hamburger.active .bar:nth-child(3){
-    transform: translateY(-9px) rotate(-45deg);
-}
+/* HERO  */
 
 .hero-home{
     background-image: url(images/hero-nina-libor.jpeg);
@@ -126,17 +184,19 @@ h1, h2, h3{
     width: 100%;
     height: 90vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
     box-shadow: 0px 8px 13px 0px rgba(34,34,34,1);
     position: relative;
     isolation: isolate;
+    padding-bottom: 1em;
 }
 
 .hero-home::after{
     content: "";
     position: absolute;
-    background-color: var(--l-text-bg);
+    background-color: var(--d-grey);
     z-index: -1;
     inset: 0;
     opacity: 0.3;
@@ -145,6 +205,8 @@ h1, h2, h3{
 
 .hero-content h1, .hero-content h3{
     color: var(--l-text-bg);
+    font-size: 2rem;
+    font-weight: 900;
 }
 
 /* OBSAH */
@@ -154,7 +216,7 @@ section{
     width: 100vw;  
 }
 
-.couple, .schedule, .parking, .registration-form{
+.prologue, .couple, .schedule, .parking, .registration-form{
     box-shadow: 0px 8px 13px 0px rgba(34,34,34,1);
 }
 
@@ -168,11 +230,7 @@ section{
     top: 10vh;
     bottom: 10vh;
     left: 0;
-    z-index: 9999;
-    /* box-shadow: 0px 10px 26px 0px rgba(34,34,34,1); */
-    /* box-shadow: 0px 10px 10px 0px rgba(251,251,249,.9);
-     */
-    
+    z-index: 999;
 }
 
 .hero{
@@ -280,7 +338,7 @@ section{
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: min-content minmax(20em, 30em);
     gap: 1em;
 }
 
@@ -310,7 +368,7 @@ section{
 }
 
 .signature{
-    font-family: 'Qwigley', cursive;
+    font-family: 'Great Vibes', cursive;
     font-size: 2rem;
 }
 
@@ -367,7 +425,7 @@ section{
 
 .bride-img{
     height: 40em;
-    width: 100%;
+    width: 99%;
     background-image: url(images/nina.jpeg);
     background-position: center;
     background-size: cover;
@@ -375,73 +433,362 @@ section{
 
 .groom-img{
     height: 40em;
-    width: 100%;
+    width: 99%;
     background-image: url(images/libor.jpeg);
     background-position: center;
     background-size: cover;
 }
 
-/* PROGRAM */ 
+/* OUR TEAM */
 
-.schedule .content{
+.our-team .content{
     display: flex;
     flex-direction: column;
+    height: auto;
+}
+
+.team-heading{
+    margin-top: 2em;
+}
+
+.team-grid{
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(2em, 4em) minmax(10em, 15em) minmax(10em, 15em) minmax(2em, 4em) minmax(10em, 15em) minmax(10em, 15em);
+    gap: .5em;
+}
+
+.grid-item{
+    display: grid;
+    place-content: center;
+}
+
+.bridesmen-heading h2{
+    text-align: center;
+}
+
+.bridesmen-heading{
+    grid-column: 1/3;
+    place-self: center;
+}
+
+
+    
+.bridesman1{
+    background-image: url(images/martin-dite.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    grid-row: 2/3;
+
+}
+
+.bridesman2{
+    background-image: url(images/martina-konecna.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    grid-column: 2/3;
+}
+
+.name2{
+    grid-row: 3/4;
+}
+
+.bestmen-heading{
+    grid-column: 1/3;
+    text-align: center;
+    place-self: center;
+}
+
+.bestman1{
+    background-image: url(images/martin-zoller.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bestman2{
+    background-image: url(images/martin-trnovec.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    grid-column: 2/3;
+}
+
+.name4{
+    grid-row: 6/7;
+}
+
+
+/* PROGRAM */ 
+
+.schedule{
+    height: 100%;
+}
+
+.schedule .content{
+    margin: 3em auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion-container{
+    width: 90%;
+}
+
+.accordion{
+    border: 1px solid var(--header);
+    border-bottom: none;
+}
+
+.schedule-heading{
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.accordion:nth-child(7){
+    border-bottom: 1px solid var(--header);
+}
+
+.accordion-header{
+    height: 8em;
+    background-color: var(--l-text-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: .5em;
+    padding: .8em;
+    cursor: pointer;
+}
+
+.accordion-heading{
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
-
-.schedule-box{
-    width: 90vw;
+.accordion-heading h3{
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
-.schedule-list{
-    border: 1px solid black;
-    padding: 1em;
-}
-
-.schedule-list li{
-    border-bottom: 1px solid black;
-    padding: 1em;
-    position: relative;
-}
-
- 
-
-.btn-show.active{
-    display: none; 
-    transition: all .3s;
-}
-
-.details{
-    display: none;
-    position: absolute;
-    top: 4.6em;
-    left: 0;
+.accordion-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    /* padding: .8em;
+    gap: .5em; */
+    transition: opacity 1s ease;
+    overflow-y: hidden;
     height: 0;
-    width: 100%;
-    padding-left: 1em;
-    overflow: hidden;
-    transition: height 0.3s ease;
+    opacity: 0;
+}
+
+.accordion-content a {
+    width: fit-content;
+    padding: .3em .5em;
+    text-decoration: none;
+    color: var(--header);
+    text-transform: uppercase;
+    border: 1px solid var(--header);
+    transition: all .3s linear;
+}
+
+.accordion-content a:hover {
+    color: var(--olive);
     
 }
 
+.accordion.active .accordion-content{
+    opacity: 1;
+    padding: .8em;
+    gap: .5em;
+}
 
-.details.active{
-    display: block;
-    height: auto;
-    background-color: var(--l-text-bg);
-    z-index: 3;
-    width: 100%;
+.accordion.active .accordion-header{
+    border-bottom: 1px solid var(--header);
+}
+
+svg{
+    transition: transform .5s ease;
+}
+
+.accordion.active svg{
+    transform: rotate(180deg);
+
+}
+
+/* NA CO SE MŮŽETE TĚŠIT? */
+
+.fun-heading{
+    margin-top: 3
 }
 
 
+/* DÁRKY */
+
+.gifts{
+    background-color: white;
+}
+
+.gifts-anounce{
+    width: 90%;
+    margin: 3em auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2em;
+}
+
+.gift-img{
+    width: 100%;
+    /* background-image: url(images/gift.jpg); */
+}
+
+.gifts-anounce p{
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* UBYTOVANI */
+
+.accomodation-container{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 3em auto;
+    gap: 1em;
+}
+
+.accomodation h2{
+    text-align: center;
+    font-size: 2rem;
+}
+
+.accomodation-choice{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.acco-heading {  
+    transition: all .3s linear;
+    cursor: pointer;
+}
+
+.acco-heading:hover, .acco-heading:active, .acco-heading:focus, .acco-heading:focus-visible, .acco-heading:visited{
+    text-decoration: underline;
+    text-decoration-color: var(--header);
+    text-underline-offset: 4px;
+}
+
+
+
+.accomodation-card{
+    width: 100%;
+    height: 36em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow:  20px 20px 60px #d5d5d4,
+             -20px -20px 60px #ffffff;
+    margin-top: 1.5em;
+}
+
+.accomodation-info{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: left;
+    padding: 1em;
+    
+}
+
+.apartman.active{
+    display: block;
+}
+
+.hotel{
+    display: none;
+}
+
+.hotel.active{
+    display: block;
+}
+
+.chatky{
+    display: none;
+}
+
+.chatky.active{
+    display: block;
+}
+
+.stan{
+    display: none;
+}
+
+.stan.active{
+    display: block;
+}
+
+
+
+
+
+.acco-image1{
+    background-image: url(images/samota.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 60%;
+}
+
+.acco-image2{
+    background-image: url(images/hotel-luznice.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 60%;
+}
+
+.acco-image4{
+    background-image: url(images/chatky-soukenik.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 60%;
+}
+
+.acco-image5{
+    background-image: url(images/stan-soukenik.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 60%;
+}
 
 
 /* REGISTRATION FORM */
 
-.involveme_popup{
-
-}
 
 .involveme_embed{
     width: 100vw;
@@ -473,14 +820,200 @@ section{
 
 
 footer{
+    width: 100%;
+    height: 20vh;
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    background: var(--d-grey);
+    place-items: center;
+}
+
+.social-menu{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 10%;
+    gap: 1em;
+}
+
+.social-menu svg{
+    
+}
+.copy p{
+    color: var(--l-text-bg);
+    
+}
+
+@media screen and (min-width: 48em){
+    .nav-bar{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .prologue-grid-container{
+        width: 70%;
+    }
+
+    .couple-grid-container{
+        width: 70%;
+        gap: 2em;
+    }
+
+    .bride-img{
+        background-position: ;
+    }
+
+    .team-grid{
+        width: 70%;
+    }
+
+    .bride-img{
+        background-position: top;
+    }
+
+    .groom-img{
+        background-position: top;
+    }
+
+    .bridesman2{
+        background-position: top;
+    }
+
+    .bestman2{
+        background-position: top;
+    }
+
+    .accordion-container{
+        width: 70%;
+    }
+
+    .gifts-anounce{
+        width: 70%;
+    }
+
+    .accomodation-container{
+        width: 70%;
+    }
+
 }
 
 
 @media screen and (min-width: 64em){
-    .nav-menu{
+    .nav-bar{
+        position: unset;
+    }
 
+    .menu-btn{
+        display: none;
+    }
+
+    .nav-menu{
+        all: unset;
+        list-style-type: none;
+        display: flex;
+    }
+
+    .nav-link{
+        transition: all .3s linear;
+    }
+
+    .nav-item:hover .nav-link{
+        color: var(--olive);
+    }
+
+    .prologue-grid-container{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .prologue-image{
+        background-position: 75%;
+    }
+
+    .couple-grid-container{
+        grid-template-columns:  1fr 1fr;
+        grid-template-rows: minmax(8em, 12em) minmax(40em, 50em);
+        gap: 2em;
+    }
+
+    .couple-heading{
+        grid-column: 1/3;
+    }
+
+    .bride, .groom{
+        text-align: center;
+    }
+
+    .our-team{
+        height: fit-content;
+    }
+    
+
+    .team-grid{
+        
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: minmax(2em, 4em) minmax(15em, 20em) minmax(15em, 20em) minmax(2em, 4em) minmax(15em, 20em) minmax(15em, 20em);
+        margin: 3em auto;
+    
+    }
+
+    .team-heading{
+        grid-column: 1/3;
+        text-align: center;
+    }
+
+
+
+    .schedule .content{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .accordion-container{
+        width: 70%;
+        height: 100%;
+    }
+
+    .accomodation-card{
+        height: 40em;
+    }
+
+
+}
+
+@media screen and (min-width: 80em){
+    .nav-bar{
+        width: 60%;
+    }
+
+    .prologue-grid-container{
+        width: 60%;
+    }
+
+    .couple-grid-container{
+        width: 60%;
+    }
+
+    .team-grid{
+        width: 60%;
+
+    }
+
+    .accordion-container{
+        width: 60%;
+    }
+
+    .gifts-anounce{
+        width: 60%;
+    }
+
+    .accomodation-container{
+        width: 60%;
+    }
+
+    .acco-image1, .acco-image2, .acco-image3, .acco-image4, .acco-image5{
+        height: 70%;
     }
 }
 
