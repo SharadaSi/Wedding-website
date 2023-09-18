@@ -1,13 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Roboto:wght@400;700&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&family=Staatliches&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fjalla+One&family=Konkhmer+Sleokchher&family=Oswald:wght@700&family=Staatliches&display=swap');
 
 
 *{
@@ -22,6 +18,7 @@
     --l-text-bg: #fbfbf9;
     --olive: #91967D;
     --d-grey: #404040;
+    --hero-overlay: #ddd5d4;
 }
 
 body{
@@ -31,8 +28,9 @@ body{
 }
 
 h1, h2, h3{
-    font-family: 'Staatliches', cursive;
-    letter-spacing: .3em;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: .3rem;
+    
 }
 
 h2{
@@ -51,9 +49,9 @@ header{
     color: var(--l-text-bg);
     align-items: center;
     height: 10vh;
-    position: sticky;
+    /* position: sticky;
     top: 0;
-    left: 0;
+    left: 0; */
     /* box-shadow: 0px 6px 8px 0px rgba(34,34,34,1); */
     width: 100%;
     z-index: 999;
@@ -63,7 +61,7 @@ header{
     text-decoration: none;
     color: var(--l-text-bg);
     font-weight: 700;
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 2.5rem;
     letter-spacing: 2px;
 }
@@ -100,8 +98,8 @@ header{
     text-transform: uppercase;
     padding: .3em .5em;
     margin: 1em 0;
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 700;   
+    font-family: 'Bebas Neue', sans-serif; 
+    letter-spacing: .3rem;
 }
 
 .nav-item:hover .nav-link{
@@ -176,8 +174,10 @@ header{
 /* HERO  */
 
 .hero-home{
-    background-image: url(images/hero-nina-libor.jpeg);
+    background-image: url(images/hero-nina-libor-resized.jpg);
+    aspect-ratio: 16/9;
     background-size: cover;
+    -webkit-background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -193,30 +193,35 @@ header{
     padding-bottom: 1em;
 }
 
-.hero-home::after{
-    content: "";
-    position: absolute;
-    background-color: var(--d-grey);
-    z-index: -1;
-    inset: 0;
-    opacity: 0.3;
-    box-shadow: inset 0px 12px 13px 0px rgba(34,34,34,1);
+@media screen and (min-width: 48em){
+    .hero-home{
+        background-image: url(images/hero-nina-libor.jpeg);
+    }
 }
 
-.hero-content h1, .hero-content h3{
+.hero-content h1{
     color: var(--l-text-bg);
     font-size: 2rem;
     font-weight: 900;
+    text-align: center;
+}
+
+.hero-content h2{
+    color: var(--l-text-bg);
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 3em; 
 }
 
 /* OBSAH */
 
 section{
-    height: 150vh;
-    width: 100vw;  
+    height: 100%;
+    width: 100%;  
 }
 
-.prologue, .couple, .schedule, .parking, .registration-form{
+.prologue, .couple, .our-team, .schedule, .fun, .registration-form{
     box-shadow: 0px 8px 13px 0px rgba(34,34,34,1);
 }
 
@@ -227,24 +232,28 @@ section{
     justify-content: center;
     align-items: center;
     position: sticky;
-    top: 10vh;
-    bottom: 10vh;
+    top: 10%;
+    bottom: 10%;
     left: 0;
     z-index: 999;
 }
 
 .hero{
     width: 100%;
-    height: 98vh;
+    height: 100vh;
+    aspect-ratio: 16/9;
 }
 
 .image1{
-    background-image: url(images/nina-libor-blacknwhite.jpeg);
+    background-image: url(images/image1.jpg);
+    aspect-ratio: 16/9;
     background-attachment: fixed;
     background-size: cover;
+    -webkit-background-size: cover;
     background-position: center;
     width: 100%;
     height: 100%;
+    min-height: 100%;
     box-shadow: 0px 8px 13px 0px rgba(34,34,34,1);
     position: relative;
     isolation: isolate;
@@ -261,11 +270,14 @@ section{
 }
 
 .image2{
-    background-image: url(images/nina-libor-blacknwhite.jpeg);
+    background-image: url(images/image2.jpg);
+    aspect-ratio: 16/9;
     background-attachment: fixed;
     background-size: cover;
+    -webkit-background-size: cover;
     background-position: center;
     width: 100%;
+    min-height: 100%;
     height: 100%;
     box-shadow: 0px 8px 13px 0px rgba(34,34,34,1);
     position: relative;
@@ -283,12 +295,15 @@ section{
 }
 
 .image3{
-    background-image: url(images/nina-libor-blacknwhite.jpeg);
+    background-image: url(images/image3.jpg);
+    aspect-ratio: 16/9;
     background-attachment: fixed;
     background-size: cover;
+    -webkit-background-size: cover;
     background-position: center;
     width: 100%;
     height: 100%;
+    min-height: 100%;
     box-shadow: 0px 8px 13px 0px rgba(34,34,34,1);
     position: relative;
     isolation: isolate;
@@ -305,12 +320,15 @@ section{
 }
 
 .image4{
-    background-image: url(images/nina-libor-blacknwhite.jpeg);
+    background-image: url(images/image4.jpg);
+    aspect-ratio: 16/9;
     background-attachment: fixed;
     background-size: cover;
+    -webkit-background-size: cover;
     background-position: center;
     width: 100%;
     height: 100%;
+    min-height: 100%;
     box-shadow: 0px 8px 13px 0px rgba(34,34,34,1);
     position: relative;
     isolation: isolate;
@@ -326,40 +344,153 @@ section{
     box-shadow: inset 0px 12px 13px 0px rgba(34,34,34,1);
 }
 
+.image5{
+    background-image: url(images/image5.jpg);
+    /* aspect-ratio: 16/9; */
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    background-position: top;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    box-shadow: 0px 8px 13px 0px rgba(34,34,34,1);
+    position: relative;
+    isolation: isolate;
+}
+
+.image5::after{
+    content: "";
+    position: absolute;
+    background-color: var(--l-text-bg);
+    z-index: -1;
+    inset: 0;
+    opacity: 0.3;
+    box-shadow: inset 0px 12px 13px 0px rgba(34,34,34,1);
+}
+
+.image6{
+    background-image: url(images/image6.jpg);
+    aspect-ratio: 16/9;
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    box-shadow: 0px 8px 13px 0px rgba(34,34,34,1);
+    position: relative;
+    isolation: isolate;
+}
+
+.image6::after{
+    content: "";
+    position: absolute;
+    background-color: var(--l-text-bg);
+    z-index: -1;
+    inset: 0;
+    opacity: 0.3;
+    box-shadow: inset 0px 12px 13px 0px rgba(34,34,34,1);
+}
+
+.image7{
+    background-image: url(images/image7.jpg);
+    aspect-ratio: 16/9;
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    box-shadow: 0px 8px 13px 0px rgba(34,34,34,1);
+    position: relative;
+    isolation: isolate;
+}
+
+.image7::after{
+    content: "";
+    position: absolute;
+    background-color: var(--l-text-bg);
+    z-index: -1;
+    inset: 0;
+    opacity: 0.3;
+    box-shadow: inset 0px 12px 13px 0px rgba(34,34,34,1);
+}
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 1290px) 
+  and (-webkit-min-device-pixel-ratio: 2){ 
+    .hero-home{
+        background-attachment: scroll;
+    }
+
+    .image1{
+        background-attachment: scroll;
+    }
+
+    .image2{
+        background-attachment: scroll;
+    }
+
+    .image3{
+        background-attachment: scroll;
+    }
+
+    .image4{
+        background-attachment: scroll;
+    }
+
+    .image5{
+        background-attachment: scroll;
+    }
+
+    .image6{
+        background-attachment: scroll;
+    }
+
+    .image7{
+        background-attachment: scroll;
+    }
+
+}
+
+
+
 /* PROLOGUE */
 
-.prologue, .couple, .schedule, .parking, .registration-form{
-    display: grid;
-    place-content: center;
-}
 
 .prologue-grid-container{
     width: 90%;
+    height: 50em;
+    /* height: 100%; */
     margin: 0 auto;
     display: grid;
+    place-content: center;
     grid-template-columns: 1fr;
-    grid-template-rows: min-content minmax(20em, 30em);
-    gap: 1em;
+    grid-template-rows: min-content minmax(20em, 25em);
+    gap: 2em;
 }
 
 .h-line{
     background-color: var(--header);
     height: 1px;
     width: 50%;
-    margin: 2em 25%;
+    margin: 1em 25%;
     display: inline-block;
 }
 
 .prologue-text{
     line-height: 1.6;
     font-size: 1.2rem;
+    
 }
 
 .initial-letter::first-letter {
     initial-letter: 2;
     padding-right: .3rem;
-    /* font-size: 2em;
-    font-weight: bold; */
 }
 
 .first-letter{
@@ -367,84 +498,35 @@ section{
     font-weight: 600;
 }
 
+@media screen and (max-width: 395px){
+    .first-letter{
+        font-size: 2rem;
+    }
+}
+
 .signature{
     font-family: 'Great Vibes', cursive;
     font-size: 2rem;
+    padding: 1em;
 }
 
 .prologue-image{
-    background-image: url(images/nina-libor-blacknwhite.jpeg);
+    background-image: url(images/nina-libor-blacknwhite-resized.jpg);
     background-size: cover;
-    background-position: right 10%;
-}
-
-
-/* COUPLE */
-
-.couple{
-    height: fit-content;
-}
-
-.couple-grid-container{
-    width: 90%;
-    display: grid;
-    grid-template-columns: 1fr;
-    place-content: center;
-    gap: 1em;
-    margin-bottom: 2em;
-}
-
-.couple-heading{
-    width: 100%;
-    text-align: center;
-}
-
-.couple-heading h2{
-    margin-top: 2em;
-}
-
-.bride{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.bride h3{
-    margin-top: 1em;
-}
-
-.groom{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.groom h3{
-    margin-top: 1em;
-}
-
-.bride-img{
-    height: 40em;
-    width: 99%;
-    background-image: url(images/nina.jpeg);
-    background-position: center;
-    background-size: cover;
-}
-
-.groom-img{
-    height: 40em;
-    width: 99%;
-    background-image: url(images/libor.jpeg);
-    background-position: center;
-    background-size: cover;
+    background-position: 75%;
 }
 
 /* OUR TEAM */
 
+
+.our-team{
+    height: 100%;
+}
+
 .our-team .content{
     display: flex;
     flex-direction: column;
-    height: auto;
+    align-items: center;
 }
 
 .team-heading{
@@ -452,16 +534,97 @@ section{
 }
 
 .team-grid{
+    
     width: 90%;
+    transform: translate(-3%);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-auto-rows: minmax(2em, 4em) minmax(10em, 15em) minmax(10em, 15em) minmax(2em, 4em) minmax(10em, 15em) minmax(10em, 15em);
-    gap: .5em;
+    grid-auto-rows: minmax(2em, 4em) minmax(10em, 18em) minmax(10em, 18em) minmax(2em, 4em) minmax(10em, 18em) minmax(10em, 18em);
+    /* column-gap: .5em; */
+    row-gap: .5em;
+    margin-bottom: 2em;
+}
+
+@media screen and (max-width: 374px){
+    .team-grid{
+    
+        width: 90%;
+        transform: translate(-5%);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: minmax(2em, 4em) minmax(10em, 18em) minmax(10em, 18em) minmax(2em, 4em) minmax(10em, 18em) minmax(10em, 18em);
+        /* column-gap: .5em; */
+        row-gap: .5em;
+        margin-bottom: 2em;
+    }
+
+    .team-detail1, .team-detail3{
+        position: absolute;
+        background-color: var(--olive);
+        width: 206%;
+        height: 90%;
+        left: -108%;
+        top: 5%;
+        padding: 1em;
+        display: grid;
+        place-content: center;
+        box-shadow: 0px 8px 13px 0px rgba(34,34,34,1);
+    
+        transform: scale(0);
+        transition: transform .3s ease-in-out;
+    }
+    
+    .team-detail2, .team-detail4{
+        position: absolute;
+        background-color: var(--olive);
+        width: 190%;
+        height: 90%;
+        right: -96%;
+        top: 5%;
+        padding: 1em;
+        display: grid;
+        place-content: center;
+        box-shadow: 0px 8px 13px 0px rgba(34,34,34,1);
+    
+        transform: scale(0);
+        transition: transform .3s ease-in-out;
+    }
+}
+
+@media screen and (min-width: 388px) {
+    .team-grid{
+    
+        width: 90%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: minmax(2em, 4em) minmax(10em, 18em) minmax(10em, 18em) minmax(2em, 4em) minmax(10em, 18em) minmax(10em, 18em);
+        /* column-gap: .5em; */
+        row-gap: .5em;
+        margin-bottom: 2em;
+    }
 }
 
 .grid-item{
     display: grid;
     place-content: center;
+}
+
+.grid-item p{
+    text-align: center;
+}
+
+.team-parag{
+    display: none;
+    font-size: 1.5rem;
+    padding-bottom: 2em;
+    color: var(--l-text-bg);
+}
+
+.team-detail-parag{
+    font-size: 1rem;
+    line-height: 1.2;
+    /* padding-bottom: 2em; */
+    color: var(--l-text-bg);
 }
 
 .bridesmen-heading h2{
@@ -473,24 +636,19 @@ section{
     place-self: center;
 }
 
-
-    
 .bridesman1{
-    background-image: url(images/martin-dite.jpg);
-    background-size: cover;
+    background-image: url(images/martas-resized.jpg);
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
 
     grid-row: 2/3;
-
 }
 
 .bridesman2{
-    background-image: url(images/martina-konecna.jpg);
-    background-size: cover;
+    background-image: url(images/martinka-resized.jpg);
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 
@@ -508,25 +666,101 @@ section{
 }
 
 .bestman1{
-    background-image: url(images/martin-zoller.jpg);
-    background-size: cover;
+    background-image: url(images/palo-resized.jpg);
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .bestman2{
-    background-image: url(images/martin-trnovec.jpg);
-    background-size: cover;
+    background-image: url(images/mato-resized.jpg);
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 
     grid-column: 2/3;
 }
 
+
+@media screen and (min-width: 48em){
+    .bridesman1{
+        background-image: url(images/martas.png);
+    }
+
+    .bridesman2{
+        background-image: url(images/martinka.png);
+    }
+
+    .bestman1{
+        background-image: url(images/palo.png);
+    }
+
+    .bestman2{
+        background-image: url(images/mato.png);
+    }
+}
+
 .name4{
     grid-row: 6/7;
 }
 
+.name1, .name2, .name3, .name4{
+    padding: 2em 3em;
+    position: relative;
+    cursor: pointer;
+    
+}
+
+.name1 > .martas, .name2 > .martinka, .name3 > .palo, .name4 > .mato{
+    padding: .5em .8em;
+    border: 1px solid var(--header);
+    transition: all .3s ease-in-out;
+}
+
+.name1 > .martas:hover, .name2 > .martinka:hover, .name3 > .palo:hover, .name4 > .mato:hover{
+    color: var(--olive)
+}
+
+.name1 > .martas:focus, .name2 > .martinka:focus, .name3 > .palo:focus, .name4 > .mato:focus{
+    color: var(--olive)
+}
+
+.team-detail1, .team-detail3{
+    position: absolute;
+    background-color: var(--olive);
+    width: 208%;
+    height: 90%;
+    left: -108%;
+    top: 5%;
+    padding: 1em;
+    display: grid;
+    place-content: center;
+    box-shadow: 0px 8px 13px 0px rgba(34,34,34,1);
+
+    transform: scale(0);
+    transition: transform .3s ease-in-out;
+}
+
+.team-detail2, .team-detail4{
+    position: absolute;
+    background-color: var(--olive);
+    width: 195%;
+    height: 90%;
+    right: -96%;
+    top: 5%;
+    padding: 1em;
+    display: grid;
+    place-content: center;
+    box-shadow: 0px 8px 13px 0px rgba(34,34,34,1);
+
+    transform: scale(0);
+    transition: transform .3s ease-in-out;
+}
+
+.team-detail1.active, .team-detail2.active, .team-detail3.active, .team-detail4.active{
+    transform: scale(1);
+    transition: transform .3s ease-in-out;
+}
 
 /* PROGRAM */ 
 
@@ -535,7 +769,7 @@ section{
 }
 
 .schedule .content{
-    margin: 3em auto;
+    margin: 0em auto;
     display: flex;
     flex-direction: column;
 }
@@ -587,27 +821,82 @@ section{
     flex-direction: column;
     justify-content: center;
     align-items: left;
-    /* padding: .8em;
-    gap: .5em; */
     transition: opacity 1s ease;
     overflow-y: hidden;
     height: 0;
     opacity: 0;
 }
 
-.accordion-content a {
-    width: fit-content;
-    padding: .3em .5em;
-    text-decoration: none;
-    color: var(--header);
-    text-transform: uppercase;
-    border: 1px solid var(--header);
-    transition: all .3s linear;
+.accordion-content ol{
+    padding-left: 1.5em;
 }
 
-.accordion-content a:hover {
-    color: var(--olive);
+.accordion-content ul{
+    list-style: circle;
+    padding-left: 1.5em;
+}
+
+.warmup-img{
+    background-image: url(images/ninalibor5.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 20em;
+    /* aspect-ratio: 9/16; */
+    background-position: center;
     
+}
+
+.arrival-img{
+    background-image: url(images/ninalibor11.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 20em;
+    background-position: center 90%;
+}
+
+.ceremony-img{
+    background-image: url(images/ninalibor4.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 20em;
+    /* aspect-ratio: 9/16; */
+    background-position: center 70%;
+}
+
+.photoshoot-img{
+    background-image: url(images/ninalibor10.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 20em;
+    /* aspect-ratio: 9/16; */
+    background-position: center 80%;
+}
+
+.cake-img{
+background-image: url(images/ninalibor2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 20em;
+    /* aspect-ratio: 9/16; */
+    background-position: center 40%;
+}
+
+.dance-img{
+    background-image: url(images/ninalibor7.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 20em;
+    /* aspect-ratio: 9/16; */
+    background-position: center 60%;
+}
+
+.chill-img{
+    background-image: url(images/ninalibor8.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 20em;
+    /* aspect-ratio: 9/16; */
+    background-position: center 40%;
 }
 
 .accordion.active .accordion-content{
@@ -629,18 +918,63 @@ svg{
 
 }
 
-/* NA CO SE MŮŽETE TĚŠIT? */
+
+/* TĚŠIT SE MŮŽETE NA */
 
 .fun-heading{
-    margin-top: 3
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.fun .content{
+    margin: 0em auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.fun .accordion:last-child{
+    border-bottom: 1px solid var(--header);
+}
+
+.area-img{
+    background-image: url(images/areal-map-rsz.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 20em;
+    /* aspect-ratio: 9/16; */
+    background-position: center 40%;
+}
+
+.catering-img{
+    background-image: url(images/kro-rsz.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 20em;
+    /* aspect-ratio: 9/16; */
+    background-position: center;
+}
+
+.bar-img{
+    background-image: url(images/waid.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 20em;
+    /* aspect-ratio: 9/16; */
+    background-position: center 10%;
+}
+
+.music-img{
+    background-image: url(images/music-rsz-resized.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 20em;
+    /* aspect-ratio: 9/16; */
+    background-position: center 30%;
 }
 
 
 /* DÁRKY */
 
-.gifts{
-    background-color: white;
-}
 
 .gifts-anounce{
     width: 90%;
@@ -654,12 +988,61 @@ svg{
 
 .gift-img{
     width: 100%;
-    /* background-image: url(images/gift.jpg); */
 }
 
 .gifts-anounce p{
     line-height: 1.6;
     text-align: center;
+}
+
+.bank-account{
+    text-decoration: none;
+    color: var(--header);
+}
+
+.qr{
+    background-image: url(images/qrcode.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 15em;
+    aspect-ratio: 1/1;
+    margin-top: 2em;
+}
+
+/* DRESSCODE */
+
+.dresscode-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3em;
+    margin: 3em 0;
+    width: 90%;
+    position: relative;
+}
+
+.dresscode-content p{
+    text-align: center;
+    
+}
+
+
+.dresscode-heading{
+}
+.dresscode-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    margin-top: 1em;
+}
+
+.hanger{
+    width: 40%;
+    position: absolute;
+    top: 22%;
+    left: 30%;
 }
 
 /* UBYTOVANI */
@@ -675,6 +1058,7 @@ svg{
 .accomodation h2{
     text-align: center;
     font-size: 2rem;
+    
 }
 
 .accomodation-choice{
@@ -686,6 +1070,7 @@ svg{
 .acco-heading {  
     transition: all .3s linear;
     cursor: pointer;
+letter-spacing: 2px;
 }
 
 .acco-heading:hover, .acco-heading:active, .acco-heading:focus, .acco-heading:focus-visible, .acco-heading:visited{
@@ -698,7 +1083,7 @@ svg{
 
 .accomodation-card{
     width: 100%;
-    height: 36em;
+    height: 42em;
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -746,12 +1131,8 @@ svg{
     display: block;
 }
 
-
-
-
-
 .acco-image1{
-    background-image: url(images/samota.jpg);
+    background-image: url(images/apartmany-resized.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -760,7 +1141,7 @@ svg{
 }
 
 .acco-image2{
-    background-image: url(images/hotel-luznice.png);
+    background-image: url(images/hotel-luznice.jpeg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -769,7 +1150,7 @@ svg{
 }
 
 .acco-image4{
-    background-image: url(images/chatky-soukenik.jpg);
+    background-image: url(images/maringotka.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -778,12 +1159,91 @@ svg{
 }
 
 .acco-image5{
-    background-image: url(images/stan-soukenik.jpg);
+    background-image: url(images/stan-slunce-rsz.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
     height: 60%;
+}
+
+/* DOPRAVA */
+
+.transport .content{
+    /* all: unset; */
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.transport h2{
+    text-align: center;
+    margin-top: 2em;
+}
+
+.transport-container{
+    width: 90%;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+}
+
+.car{
+    
+    display: grid;
+    place-items: center;
+}
+
+.train{
+    
+    display: grid;
+    place-items: center;
+}
+
+.car-icon{
+    width: 10em;
+    height: 10em;
+}
+
+.train-icon{
+    width: 10em;
+    height: 10em;
+}
+
+.car-heading, .train-heading{
+    margin: 1em auto;
+}
+
+.transport a {
+    text-align: center;
+    color: var(--d-grey);
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: .5em .7em;
+    border: 1px solid var(--header);
+    margin: 1em auto;
+}
+
+.train-map:hover, .parking-map:hover{
+    transition: all .3s ease-in-out;
+}
+
+.train-map:hover, .parking-map:hover{
+    background-color: var(--olive);
+    transition: all .3s ease-in-out;
+}
+
+.parking-map{
+    position: relative;
+}
+
+.tooltip{
+    display: none;
 }
 
 
@@ -795,28 +1255,7 @@ svg{
     height: 100%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* FOOTER */
 
 
 footer{
@@ -836,55 +1275,284 @@ footer{
     gap: 1em;
 }
 
-.social-menu svg{
-    
-}
 .copy p{
     color: var(--l-text-bg);
+}
+
+@media screen and (min-width: 24.3em){
+    .team-detail1, .team-detail3{
+        position: absolute;
+        width: 205%;
+        height: 90%;
+        left: -106%;
+        /* top: 5%; */
+        
+    }
     
+    .team-detail2, .team-detail4{
+        position: absolute;
+        width: 201%;
+        height: 90%;
+        right: -102%;
+        top: 5%;
+    }
+}
+
+@media screen and (min-width: 30em){
+    .team-detail1, .team-detail3{
+        position: absolute;
+        width: 202%;
+        height: 100%;
+        left: -101%;
+        top: 0;
+        
+    }
+    
+    .team-detail2, .team-detail4{
+        position: absolute;
+        width: 202%;
+        height: 100%;
+        right: -101%;
+        top: 0;
+    }
 }
 
 @media screen and (min-width: 48em){
+    
+
     .nav-bar{
+        position: sticky;
+        top: 0;
+        left: 0;
         width: 90%;
         margin: 0 auto;
     }
 
+    .couple, .our-team{
+        height: 200vh;
+    }
+
+    .schedule{
+        height: 270vh;
+    }
+
+    .fun{
+        height: 215vh;
+    }
+
+    .gifts{
+        height: 150vh;
+    }
+
+    .dresscode{
+        height: 150vh;
+    }
+
+    .accomodation{
+        height: 150vh;
+    }
+
+    .transport{
+        height: 150vh;
+    }
+
+    .transport .content{
+        position: sticky;
+        top: 10vh;
+        bottom: 10vh;
+        height: auto;
+    }
+
     .prologue-grid-container{
         width: 70%;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: minmax(5em, 6em);
+        align-items: center;
     }
 
-    .couple-grid-container{
-        width: 70%;
-        gap: 2em;
+    .prologue-text{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4em;
     }
 
-    .bride-img{
-        background-position: ;
+    .prologue-image{
+        height: 75%;
+    }
+
+    .image3{
+        background-position: center 20%;
+    }
+
+    .image4{
+        background-position: center 10%;
+    }
+
+    .image5{
+        background-position: center 15%;
+    }
+
+    .image6{
+        background-position: top;
     }
 
     .team-grid{
         width: 70%;
+        row-gap: 1.5em;
     }
 
-    .bride-img{
-        background-position: top;
+    .martas, .martinka, .palo, .mato{
+        text-transform: uppercase;
+        font-size: 1.5rem;
     }
 
-    .groom-img{
-        background-position: top;
+    .name1 > .martas, .name2 > .martinka, .name3 > .palo, .name4 > .mato{
+        border: none;
+    }
+    
+    .team-parag{
+        all: unset;
+
+        color: var(--header);
+        display: none;
+        width: 140%;
+        transition: opacity 1s ease;
+        padding-left: 0;
+        font-size: 1rem;
+        opacity: 0;
     }
 
-    .bridesman2{
-        background-position: top;
+    .name1:hover .team-parag, .name2:hover .team-parag, .name3:hover .team-parag, .name4:hover .team-parag{
+        opacity: 1;
+        display: grid;
+        place-items: center;
     }
 
-    .bestman2{
-        background-position: top;
+    .name1:hover .martas, .name2:hover .martinka, .name3:hover .palo, .name4:hover .mato{
+        display: none;
     }
+
+    .team-detail1, .team-detail3, .team-detail2, .team-detail4{
+        display: none;
+        
+    }
+
+    .dresscode-content{
+        width: 80%;
+    }
+
+    .dresscode-content .h-line{
+        margin-bottom: 5em;
+    }
+
+    .hanger{
+        width: 30%;
+        top: 22%;
+        left: 35%;
+    }
+
+
 
     .accordion-container{
         width: 70%;
+    }
+
+    .accordion-content{
+        display: flex;
+        flex-direction: row;
+        /* justify-content: center; */
+        align-items: center;
+        background-color: var(--l-text-bg);
+    }
+
+    .area-desc{
+        flex-basis: 60%;
+        margin-left: 2em;
+        line-height: 1.5;
+    }
+
+    .accordion-content p {
+        padding: 4em;
+        line-height: 2;
+        overflow-x: hidden;
+    }
+
+    .warmup-img{
+        height: 20em;
+        aspect-ratio: 9/16;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .arrival-img{
+        height: 20em;
+        aspect-ratio: 9/16;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .ceremony-img{
+        height: 20em;
+        aspect-ratio: 9/16;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .photoshoot-img{
+        height: 20em;
+        aspect-ratio: 9/16;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .cake-img{
+        height: 20em;
+        aspect-ratio: 9/16;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .dance-img{
+        height: 20em;
+        aspect-ratio: 9/16;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .chill-img{
+        height: 20em;
+        aspect-ratio: 9/16;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .area-img{
+        height: 20em;
+        aspect-ratio: 1/1;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .catering-img{
+        height: 20em;
+        aspect-ratio: 1/1;
+        width: auto;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .bar-img{
+        height: 20em;
+        aspect-ratio: 1/1;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .music-img{
+        height: 20em;
+        aspect-ratio: 1/1;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 
     .gifts-anounce{
@@ -895,13 +1563,42 @@ footer{
         width: 70%;
     }
 
+    .transport .content{
+        justify-content: center;
+    }
+
+    .transport-container{
+        width: 70%;
+        flex-direction: row;
+        
+    }
+
+    .car{
+        flex-basis: 50%;
+
+    }
+
+    .train{
+        flex-basis: 50%;
+    }
+
+    .car p{
+        min-height: 18em;
+    }
+    
+    .train p {
+        min-height: 18em;
+    }
+
+    .transport p{
+        width: 70%;
+    }
+
 }
 
 
 @media screen and (min-width: 64em){
-    .nav-bar{
-        position: unset;
-    }
+       
 
     .menu-btn{
         display: none;
@@ -955,7 +1652,12 @@ footer{
         grid-template-columns: 1fr 1fr;
         grid-auto-rows: minmax(2em, 4em) minmax(15em, 20em) minmax(15em, 20em) minmax(2em, 4em) minmax(15em, 20em) minmax(15em, 20em);
         margin: 3em auto;
+        row-gap: 2em;
     
+    }
+
+    .team-parag{
+        width: 100%;
     }
 
     .team-heading{
@@ -963,7 +1665,17 @@ footer{
         text-align: center;
     }
 
+    .dresscode-content{
+        width: 70%;
+    }
 
+    .dresscode-content .h-line{
+        margin-bottom: 7em;
+    }
+
+    .hanger{
+    top: 21%;
+    }
 
     .schedule .content{
         display: flex;
@@ -978,14 +1690,38 @@ footer{
     .accomodation-card{
         height: 40em;
     }
+    
+    .directions{
+        width: 100%;
+        object-fit: contain;
+    }
+      
+    .parking-map:hover + .tooltip,
+    .tooltip:hover {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .tooltip {
+        all: unset;
+
+        position: absolute;
+        top: 21%;
+        left: 67%;
+        transform: translateX(-50%);
+        z-index: 3;
+        width: 50em;
+        height: auto;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        box-shadow: 0px 8px 13px 0px rgba(34,34,34,1);
+    }
 
 
 }
 
 @media screen and (min-width: 80em){
-    .nav-bar{
-        width: 60%;
-    }
 
     .prologue-grid-container{
         width: 60%;
@@ -997,7 +1733,16 @@ footer{
 
     .team-grid{
         width: 60%;
+        grid-template-rows: minmax(4em, 6em) minmax(18em, 23em) minmax(18em, 23em) minmax(4em, 6em) minmax(18em, 23em) minmax(18em, 23em);
+        row-gap: 3em;
 
+    }
+
+    .team-parag{
+        width: 90%;
+        padding-left: 2em;
+        padding-right: 2em;
+        line-height: 1.5;
     }
 
     .accordion-container{
@@ -1008,12 +1753,42 @@ footer{
         width: 60%;
     }
 
+    .dresscode-content{
+        width: 60%;
+    }
+
+    .dresscode-content .h-line{
+        margin-bottom: 10em;
+    }
+
+    .hanger{
+        top: 18%;
+    }
+
     .accomodation-container{
         width: 60%;
     }
 
     .acco-image1, .acco-image2, .acco-image3, .acco-image4, .acco-image5{
         height: 70%;
+    }
+
+    .transport p{
+        width: 70%;
+        
+    }
+}
+
+@media screen and (min-width: 120em){
+    .tooltip{
+        position: absolute;
+        left: 56%;
+        top: 19%;
+    }
+
+    .team-parag{
+        width: 70%;
+        line-height: 1.7;
     }
 }
 

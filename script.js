@@ -93,6 +93,13 @@ const removeAll = () => {
     stanC.classList.remove("active")
 }
 
+const removeUndrL = () => {
+    apartmanH.style.textDecoration = "none"
+    hotelH.style.textDecoration = "none"
+    chatkyH.style.textDecoration = "none"
+    stanH.style.textDecoration = "none"
+}
+
 // const removeUnderline = () => {
 //     apartmanH.style.textDecoration = "none"
 //     hotelH.style.textDecoration = "none"
@@ -113,6 +120,8 @@ const removeAll = () => {
 apartmanH.addEventListener("click", () => {
     removeAll()
     apartmanC.classList.add("active")
+    removeUndrL()
+    apartmanH.style.textDecoration = "underline"
     
     if (!apartmanH.classList.contains("active")){
         apartmanC.style.display = "block"
@@ -122,6 +131,8 @@ apartmanH.addEventListener("click", () => {
 hotelH.addEventListener("click", () => {
     removeAll()
     hotelC.classList.add("active")
+    removeUndrL()
+    hotelH.style.textDecoration = "underline"
     
     if (!apartmanH.classList.contains("active")){
         apartmanC.style.display = "none"
@@ -133,6 +144,8 @@ hotelH.addEventListener("click", () => {
 chatkyH.addEventListener("click", () => {
     removeAll()
     chatkyC.classList.add("active")
+    removeUndrL()
+    chatkyH.style.textDecoration = "underline"
     
     if (!apartmanH.classList.contains("active")){
         apartmanC.style.display = "none"
@@ -142,10 +155,40 @@ chatkyH.addEventListener("click", () => {
 stanH.addEventListener("click", () => {
     removeAll()
     stanC.classList.add("active")
+    removeUndrL()
+    stanH.style.textDecoration = "underline"
 
     if (!apartmanH.classList.contains("active")){
         apartmanC.style.display = "none"
     }
 })
 
+
+// NAS TYM
+
+const name1 = document.querySelector(".name1")
+const name2 = document.querySelector(".name2")
+const name3 = document.querySelector(".name3")
+const name4 = document.querySelector(".name4")
+
+const detailP1 = document.querySelector(".team-detail1")
+const detailP2 = document.querySelector(".team-detail2")
+const detailP3 = document.querySelector(".team-detail3")
+const detailP4 = document.querySelector(".team-detail4")
+
+name1.addEventListener("click", () => {
+    detailP1.classList.toggle("active")
+})
+
+name2.addEventListener("click", () => {
+    detailP2.classList.toggle("active")
+})
+
+name3.addEventListener("click", () => {
+    detailP3.classList.toggle("active")
+})
+
+name4.addEventListener("click", () => {
+    detailP4.classList.toggle("active")
+})
 
